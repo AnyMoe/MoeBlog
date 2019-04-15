@@ -5,6 +5,19 @@
 </template>
 
 <script>
+function onVisibilityChanged(event) {
+  var hidden = event.target.webkitHidden;
+  var title = document.title;
+  var hide = {
+      title:'(●—●)喔哟，崩溃啦！'
+  }
+  if (hidden){
+    document.title = hide.title
+  }else{
+    document.title = title
+  }
+    
+}
     import { mapGetters } from 'vuex'
     export default {
         name: 'App',
@@ -21,12 +34,31 @@
             this.$setFavicon()
             let windowSize = this.$util.getWindowSize()
             let pathArr = this.$route.path.split("/")
-            if (pathArr[1] == "user" && windowSize.height > windowSize.width * 1.2) {
-                this.$router.push("/mobile/user/blog")
+            this.$router.push("/")
+        },
+        mounted(){
+            let originalTitle = document.title;
+            let hide = {
+                title:'(●—●)喔哟，崩溃啦！',
+                favicon: '/static/failure.ico',
+                wait_text: '(/≧▽≦/)咦！又好了！'
             }
-            if (pathArr[1] == "mobile" && windowSize.height <= windowSize.width * 1.2) {
-                this.$router.push("/")
-            }
+            let hiddenProperty = 'hidden' in document ? 'hidden' :    
+                'webkitHidden' in document ? 'webkitHidden' :    
+                'mozHidden' in document ? 'mozHidden' :    
+                null;
+            let visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+            document.addEventListener(visibilityChangeEvent, ()=>{
+            if (document[hiddenProperty]) {
+                    this.$setFavicon(hide.favicon)    
+                    document.title = hide.title
+                }else{
+                    this.$setFavicon()
+                    document.title = hide.wait_text
+                    setTimeout(()=>{document.title = originalTitle}
+                    ,2000)
+                }
+            });
         }
     }
 </script>

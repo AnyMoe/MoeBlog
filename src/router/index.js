@@ -17,14 +17,6 @@ import ReadmeMain from '@/views/readme/Main'
 import ConfigureMain from '@/views/configure/Main'
 import HelperMain from '@/views/helper/Main'
 
-import MobileLayout from '@/mobile_views/layout/Layout'
-import MobileBlogMain from '@/mobile_views/blog/Main'
-import MobileBlogDetails from '@/mobile_views/blog/Details'
-import MobileProjectMain from '@/mobile_views/project/Main'
-import MobileProjectDetails from '@/mobile_views/project/Details'
-import MobileSelfMain from '@/mobile_views/self/Main'
-
-
 
 Vue.use(Router)
 
@@ -176,9 +168,6 @@ export const constantRouterMap = [
             }
         ]
     },
-
-
-
     {
         path: "/404",
         component: Error404
@@ -190,83 +179,7 @@ export const constantRouterMap = [
     {
         path: "*",
         redirect: "/404"
-    },
-
-    //mobile
-    {
-        path: '/mobile/user/blog',
-        redirect: '/mobile/user/blog/main',
-        component: MobileLayout,
-        meta: {
-            type: "mobile",
-            icon: 'edit',
-            title: '博客'
-        },
-        children: [
-            {
-                path: 'main',
-                component: MobileBlogMain,
-                meta: {
-                    scrollTop: true
-                }
-            },
-            {
-                path: 'details/:id',
-                component: MobileBlogDetails,
-                meta: {
-                    scrollTop: true
-                }
-            }
-        ]
-
-    },
-    {
-        path: '/mobile/user/project',
-        redirect: '/mobile/user/project/main',
-        component: MobileLayout,
-        meta: {
-            type: "mobile",
-            icon: 'like-o',
-            title: '项目'
-        },
-        children: [
-            {
-                path: 'main',
-                component: MobileProjectMain,
-                meta: {
-                    scrollTop: true
-                }
-            },
-            {
-                path: 'details/:name',
-                component: MobileProjectDetails,
-                meta: {
-                    scrollTop: true
-                }
-            }
-        ]
-
-    },
-    {
-        path: '/mobile/user/self',
-        redirect: '/mobile/user/self/main',
-        component: MobileLayout,
-        meta: {
-            type: "mobile",
-            icon: 'contact',
-            title: '个人'
-        },
-        children: [
-            {
-                path: 'main',
-                component: MobileSelfMain,
-                meta: {
-                    scrollTop: true
-                }
-            }
-        ]
-
-    },
+    }
 ]
 
 

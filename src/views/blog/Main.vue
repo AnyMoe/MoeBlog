@@ -1,9 +1,10 @@
 <template>
     <div style="min-height: 600px" v-loading="loading">
         <el-card shadow="never" style="margin-bottom: 20px">
-            <el-input placeholder="请输入关键字" v-model="searchKey" clearable style="width: 300px"></el-input>
+            <el-input class="search" placeholder="请输入关键词" v-model="searchKey" clearable></el-input>
             <el-button @click="search" icon="el-icon-search" style="margin-left: 10px" circle plain></el-button>
-            <el-button @click="$share()" style="margin-left: 10px" icon="el-icon-share" type="warning" plain circle></el-button>
+            <el-button class="pc_share" @click="$share()" style="margin-left: 10px" icon="el-icon-share" type="warning" plain circle></el-button>
+            <el-button class="mobile_share" @click="$mobileShare()" style="margin-left: 10px" icon="el-icon-share" type="warning" plain circle></el-button>
             <el-button type="primary" icon="el-icon-edit" round plain style="float: right;" @click="goAdd">写博文</el-button>
         </el-card>
 
@@ -29,9 +30,6 @@
                 </div>
                 <div style="font-size: 0.9rem;line-height: 1.5;color: #606c71;">
                     最近更新 {{item.updateTime}}
-                </div>
-                <div style="font-size: 1.1rem;line-height: 1.5;color: #303133;padding: 10px 0px 0px 0px">
-                    {{item.description}}
                 </div>
             </el-card>
             <div style="text-align: center">
@@ -84,18 +82,19 @@
                         this.query.pageNumber = pageNumber
                     }
                     for (let i = 0; i < result.length; i++) {
-                        for (let key in result[i].files) {
-                            let data = {}
-                            data['title'] = key
-                            data['url'] = result[i].files[key]
-                            data['description'] = result[i]['description']
-                            data['id'] = result[i]['id']
-                            data['createTime'] = this.$util.utcToLocal(result[i]['created_at'])
-                            data['updateTime'] = this.$util.utcToLocal(result[i]['updated_at'])
-                            data['hide'] = false
-                            this.blogs.push(data)
-                            break
-                        }
+                        if("blog" === result[i]['description'])
+                            for (let key in result[i].files) {
+                                let data = {}
+                                data['title'] = key
+                                data['url'] = result[i].files[key]
+                                data['description'] = result[i]['description']
+                                data['id'] = result[i]['id']
+                                data['createTime'] = this.$util.utcToLocal(result[i]['created_at'])
+                                data['updateTime'] = this.$util.utcToLocal(result[i]['updated_at'])
+                                data['hide'] = !result[i].public
+                                this.blogs.push(data)
+                                break
+                            }
                     }
                 }).then(() => this.loading = false)
             },
@@ -146,3 +145,40 @@
         }
     }
 </script>
+
+<style>
+    .search{
+        width: 300px;
+    }
+    .mobile_share{
+        display: none;
+    }
+    .pc_share{
+        display: inline-block;
+    }
+    /* 超小屏 */
+    @media screen and (max-width: 768px){
+        .search{
+            width: 230px;
+        }
+        .mobile_share{
+            display: inline-block;
+        }
+        .pc_share{
+            display: none;
+        }
+    }
+    /* 小屏及以上 */
+    @media screen and (min-width: 768px){
+        .search{
+            width: 310px;
+        }
+        .mobile_share{
+            display: none;
+        }
+        .pc_share{
+            display: inline-block;
+        }
+    }
+
+</style>

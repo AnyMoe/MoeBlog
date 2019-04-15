@@ -14,15 +14,14 @@
             <h1 class="project-name">{{blogTitle}}</h1>
             <h2 class="project-tagline">{{blogDescribe}}</h2>
             <a :href="'https://github.com/'+githubUsername" class="btn" target="_blank">GitHub主页</a>
-            <a href="https://github.com/GitHub-Laziji/vblog" class="btn" target="_blank" v-if="!mini">博客源码</a>
         </section>
-        <div style="position:relative;  z-index:2;margin: auto;margin-top:-30px;width:64rem;">
+        <div class="top_tarbar">
             <el-card shadow="never" :body-style="{ padding: '0px' }">
                 <el-row>
-                    <el-col :span="10">
+                    <el-col :span="10" :xs="7">
                         <el-menu @select="selectTopbar" :default-active="topbar.active" mode="horizontal" menu-trigger="click">
                             <el-submenu index="#more">
-                                <template slot="title">了解博主</template>
+                                <template slot="title">了解我</template>
                                 <el-menu-item index="#githubHome">github主页</el-menu-item>
                                 <el-menu-item index="#blog">其他博客</el-menu-item>
                             </el-submenu>
@@ -46,10 +45,10 @@
                                     <el-button @click="play" id="play" slot="reference" :icon="music.isPlay?'el-icon-refresh':'el-icon-caret-right'" circle></el-button>
                                 </el-popover>
                             </el-col>
-                            <el-col :span="14" style="padding-left: 20px">
+                            <el-col class="hidden-xs-only" :span="14" style="padding-left: 20px">
                                 <el-slider @change="changeTime" :format-tooltip="$util.formatTime" :max="music.maxTime" v-model="music.currentTime" style="width: 100%;"></el-slider>
                             </el-col>
-                            <el-col :span="6" style="padding: 9px 0px 0px 10px;color:#909399;font-size: 13px">
+                            <el-col class="hidden-xs-only" :span="6" style="padding: 9px 0px 0px 10px;color:#909399;font-size: 13px">
                                 {{$util.formatTime(music.currentTime)}}/{{$util.formatTime(music.maxTime)}}
                             </el-col>
                         </el-row>
@@ -61,7 +60,7 @@
                             <source :src="audioUrl" type="audio/mpeg">
                         </audio>
                     </el-col>
-                    <el-col :span="4" style="text-align: right;">
+                    <el-col :xs="5" :span="4" class="github_user_name">
                         <div style="font-size: 20px;color:#606266;margin-top: 5px">
                             <b>{{githubUsername}}</b>
                         </div>
@@ -70,7 +69,7 @@
                             <br>
                         </div>
                     </el-col>
-                    <el-col :span="2" style="text-align: center;">
+                    <el-col :xs="3" :span="2" style="text-align: center;" class="github_avatar">
                         <img v-popover:bigAvatar :src="avatarUrl" style="margin-top: 4px;margin-right: 10px;width:52px; height:52px; border-radius:5px; border: 1px solid #EBEEF5"
                         />
                         <el-popover ref="bigAvatar" placement="top-start" :title="githubUsername" width="200" trigger="hover">
@@ -108,6 +107,7 @@
     import Sidebar from './components/Sidebar'
     import AppMain from './components/AppMain'
     import Foot from './components/Foot'
+    import 'element-ui/lib/theme-chalk/display.css';
     export default {
         components: {
             Sidebar,
@@ -337,4 +337,44 @@
         color: #586069 !important;
         word-wrap: break-word;
     }
+    @media screen and (min-width: 768px){
+        .github_user_name{
+            text-align: right;
+        }
+    
+    }
+    @media screen and (max-width: 768px){
+        .github_user_name{
+            margin-left: -1rem;
+        }
+        .github_avatar{
+            margin-left: 1rem;
+        }
+    }
+    .top_tarbar{
+        position:relative;
+        z-index:2;
+        margin: auto;
+        margin-top:-30px;
+        width: 64rem;
+    }
+    /* 超小屏 */
+    @media screen and (max-width: 768px){
+        .top_tarbar{
+            width: 23.2rem;
+        }
+    }
+    /* 小屏 */
+    @media screen and (min-width: 768px){
+        .top_tarbar{
+            width: 48rem;
+        }
+    }
+    /* 中屏 */
+    @media screen and (min-width: 992px){
+        .top_tarbar{
+            width: 64rem;
+        }
+    }
+
 </style>

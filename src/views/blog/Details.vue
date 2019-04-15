@@ -20,7 +20,7 @@
                 <br> 更新 {{blog.updateTime}}
             </div>
             <div style="font-size: 1.1rem;line-height: 1.5;color: #303133;border-bottom: 1px solid #E4E7ED;padding: 5px 0px 5px 0px">
-                <pre style="font-family: '微软雅黑'">{{blog.description}}</pre>
+                <!-- <pre style="font-family: '微软雅黑'">{{blog.description}}</pre> -->
             </div>
             <div v-html="blog.content" class="markdown-body" style="padding-top: 20px"></div>
         </el-card>

@@ -13,14 +13,14 @@
 
 ## 简介 Introduction
 
-超萌的博客
-博客基于 GitHub Pages 与 Github API 实现无后台，可动态发布博客的系统
-博客数据储存于gist 通过Github API 进行增删改查
-喜欢的话留下你的星星╭(●｀∀´●)╯╰(●’◡’●)╮
+超萌的博客  
+博客基于 GitHub Pages 与 Github API 实现无后台，可动态发布博客的系统  
+博客数据储存于gist 通过Github API 进行增删改查  
+喜欢的话留下你的星星╭(●｀∀´●)╯╰(●’◡’●)╮  
 
-Endearing blog system.
-Blog system based on GitHub Pages and Github API to implement a system which can dynamically publish blogs without a back-end.
-Blog data stored in gist. Added, deleted and changed through Github API
+Endearing blog system.  
+Blog system based on GitHub Pages and Github API to implement a system which can dynamically publish blogs without a back-end.  
+Blog data stored in gist. Added, deleted and changed through Github API  
 If you like, star the project. ●(●`∀ ́●)╯╰(●’◡’●)╮
 
 ## 演示地址 Demo 
@@ -32,6 +32,14 @@ If you like, star the project. ●(●`∀ ́●)╯╰(●’◡’●)╮
 - [x] 改进传统 GitHub Pages 不能动态发布的缺陷 &nbsp;&nbsp;Dynamically post
 - [x] 响应式页面  &nbsp;&nbsp;&nbsp;Responsive Design
 - [x] 单页面应用  &nbsp;&nbsp;&nbsp;Single-Page Application
+
+相较于[VBlog][2]项目 Compared to the [VBlog][2]:
+- [x] Favicon  &nbsp;&nbsp;add favicon
+- [x] 更加可爱 &nbsp;&nbsp;More cute(Kawaii)
+- [x] 修改时间显示  &nbsp;&nbsp;&nbsp;Modify time display
+- [x] 博文去掉了简要说明  &nbsp;&nbsp;&nbsp;removed the brief description
+- [x] 用响应式代替专门的手机版   &nbsp;&nbsp;&nbsp;Replacing the mobile version with responsive design
+- [x] 具有Disqus 驱动的评论功能  &nbsp;&nbsp;&nbsp;Comments function power by Disqus
 
 
 ## 使用的组件 Components used
@@ -50,9 +58,9 @@ If you like, star the project. ●(●`∀ ́●)╯╰(●’◡’●)╮
 
 #### 配置  Configuration
 
-    修改configuration.json
+修改configuration.json
 
-    Modify configuration.json
+Modify configuration.json
 
 #### 获取Token Set Token
 
@@ -73,7 +81,7 @@ Code licensed under the [Mozilla Public License, version 2.0](LICENSE).
 ------
 
 
-原作者 Original Author: *Laziji*
+原作者 Original Author: *Laziji*  
 原repo Original Repository: [VBlog][2]
 
 

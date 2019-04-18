@@ -48,6 +48,12 @@ If you like, star the project. ●(●`∀ ́●)╯╰(●’◡’●)╮
 
     npm run build
 
+#### 配置  Configuration
+
+    修改configuration.json
+
+    Modify configuration.json
+
 #### 获取Token Set Token
 
 在 ```github > settings > Developer settings > Personal access tokens```  勾选```gist``` 和 ```repo```权限 获取```Token```

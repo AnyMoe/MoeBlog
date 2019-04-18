@@ -17,9 +17,19 @@
         <b>没有更新 ╮(๑•́ ₃•̀๑)╭</b>
       </font>
     </el-card>
+    <el-card
+      v-if="false != disqusShortname"
+      shadow="hover"
+      style="border-top: 0px solid #ffffff00;"
+    >
+      <div class="comments">
+        <vue-disqus :shortname="disqusShortname" :identifier="blog.id" :title="blog.title"></vue-disqus>
+      </div>
+    </el-card>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import GistApi from "@/api/gist";
 export default {
   data() {
@@ -37,6 +47,9 @@ export default {
         updateTime: ""
       }
     };
+  },
+  computed: {
+    ...mapGetters(["disqusShortname"])
   },
   mounted() {
     this.loading = true;

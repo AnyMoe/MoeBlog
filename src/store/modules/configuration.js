@@ -33,12 +33,13 @@ const configuration = {
     
             state.backgroundColorRight = configuration["backgroundColorRight"] || "#159957"
 
-            //http://sc1.111ttt.cn:8282/2018/1/03m/13/396131232171.m4a?tflag=1519095601&pin=6cd414115fdb9a950d827487b16b5f97#.mp3
             state.audioUrl = configuration["audioUrl"] || ""
 
             state.mini = configuration["mini"] || false
 
             state.audioAutoPlay = configuration["audioAutoPlay"] || false
+
+            state.disqusShortname = configuration["disqusShortname"] || false
 
             state.webSites = configuration["webSites"] || []
         }

@@ -13,9 +13,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Vant from 'vant'
 import 'vant/lib/vant-css/index.css'
 
+import VueDisqus from 'vue-disqus'
+
 Vue.use(Vant)
 Vue.use(ElementUI)
 Vue.use(mavonEditor)
+Vue.use(VueDisqus)
 
 Vue.prototype.$markdown = function (value) {
     return mavonEditor.markdownIt.render(value)

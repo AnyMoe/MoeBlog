@@ -9,6 +9,7 @@
     "backgroundColorRight": "#FC2D2D",
     "audioUrl": "https://link.hhtjim.com/163/29732992.mp3",
     "mini": true,
+    "disqusShortname": false,
     "webSites":[
     ]
 }

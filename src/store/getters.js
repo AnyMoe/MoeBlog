@@ -12,6 +12,7 @@ const getters = {
     mini: state => state.configuration.mini,
     audioAutoPlay: state => state.configuration.audioAutoPlay,
     webSites: state => state.configuration.webSites,
+    disqusShortname: state => state.configuration.disqusShortname,
     avatarUrl: state => state.user.avatarUrl,
     name: state => state.user.name,
     location: state => state.user.location,

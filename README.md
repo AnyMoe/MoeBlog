@@ -35,6 +35,7 @@ If you like, star the project. ●(●`∀ ́●)╯╰(●’◡’●)╮
 
 相较于[VBlog][2]项目 Compared to the [VBlog][2]:
 - [x] Favicon  &nbsp;&nbsp;add favicon
+- [x] 美观的url (history模式)  &nbsp;&nbsp;More beautiful url (without #)
 - [x] 更加可爱 &nbsp;&nbsp;More cute(Kawaii)
 - [x] 修改时间显示  &nbsp;&nbsp;&nbsp;Modify time display
 - [x] 博文去掉了简要说明  &nbsp;&nbsp;&nbsp;removed the brief description

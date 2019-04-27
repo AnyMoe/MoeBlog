@@ -118,6 +118,12 @@ const webpackConfig = merge(baseWebpackConfig, {
                 from: path.resolve(__dirname, '../static'),
                 to: config.build.assetsSubDirectory,
                 ignore: ['.*']
+            },
+            {
+                from: (process.env.NODE_ENV === 'testing')
+                ? 'index.html'
+                : config.build.index,
+                to: config.build.assetsRoot + '/404.html'
             }
         ])
     ]
